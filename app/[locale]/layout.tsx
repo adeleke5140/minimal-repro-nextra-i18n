@@ -1,13 +1,17 @@
 import { Layout } from 'nextra-theme-docs';
 import { getPageMap } from 'nextra/page-map';
 import React from 'react'
+import "../global.css"
 
 export default async function RootLayout({
-  children
+  children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-  const pageMap = await getPageMap('en');
+  const { locale } = await params;
+  const pageMap = await getPageMap(`/${locale || "en"}`);
 
   return (
     <html lang="en">

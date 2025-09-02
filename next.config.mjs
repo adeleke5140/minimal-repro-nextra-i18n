@@ -9,5 +9,10 @@ export default withNextra({
   i18n: {
     locales: ['en', 'ja'],
     defaultLocale: 'en'
+  },
+  turbopack: {
+    resolveAlias: {
+         'next-mdx-import-source-file': './mdx-components.tsx'
+    }
   }
 });
